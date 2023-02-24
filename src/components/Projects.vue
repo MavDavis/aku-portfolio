@@ -1,12 +1,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import {IMAGE} from '../assets/Image'
 interface Item {
   id: number;
-  name: string;
-  src: string;
-  hrefCode: string;
-  hrefLive: string;
+  attributes:{
+
+    name: string;
+    src: string;
+    hrefCode: string;
+    hrefLive: string;
+  }
 }
 
 export default defineComponent({
@@ -14,51 +16,14 @@ export default defineComponent({
   data() {
     return {
       items: [
-        {
-          id: 1,
-          name: "E-Commerce Website",
-          src: IMAGE,
-          hrefLive: "https://ecom-estore.netlify.app/",
-          hrefCode: "https://github.com/Rahmathirshad/E-Commerce---Website",
-        },
-        {
-          id: 1,
-          name: "E-Commerce Website",
-          src: IMAGE,
-          hrefLive: "https://ecom-estore.netlify.app/",
-          hrefCode: "https://github.com/Rahmathirshad/E-Commerce---Website",
-        },
-        {
-          id: 1,
-          name: "E-Commerce Website",
-          src: IMAGE,
-          hrefLive: "https://ecom-estore.netlify.app/",
-          hrefCode: "https://github.com/Rahmathirshad/E-Commerce---Website",
-        },
-        {
-          id: 1,
-          name: "E-Commerce Website",
-          src: IMAGE,
-          hrefLive: "https://ecom-estore.netlify.app/",
-          hrefCode: "https://github.com/Rahmathirshad/E-Commerce---Website",
-        },
-        {
-          id: 1,
-          name: "E-Commerce Website",
-          src: IMAGE,
-          hrefLive: "https://ecom-estore.netlify.app/",
-          hrefCode: "https://github.com/Rahmathirshad/E-Commerce---Website",
-        },
-        {
-          id: 1,
-          name: "E-Commerce Website",
-          src: IMAGE,
-          hrefLive: "https://ecom-estore.netlify.app/",
-          hrefCode: "https://github.com/Rahmathirshad/E-Commerce---Website",
-        },
+       
       ] as Item[],
     };
   },
+  mounted() {
+  console.log(this.items);
+  
+      },
 });
 </script>
 <template>
@@ -84,18 +49,18 @@ export default defineComponent({
             <div class="shadow-xl rounded-b-md duration-300 hover:scale-150">
               <div class="">
               <img
-                :src=item.src
+                :src=item.attributes.src
                 alt=""
                 class="rounded-t-md "
               />
-              <p class="bg-gray-900  font-semibold">{{ item.name }}</p>
+              <p class="bg-gray-900  font-semibold">{{ item.attributes.name }}</p>
               </div>
               <div class="flex items-center justify-center bg-zinc-900 rounded-b-md">
                 <button className="w-1/2 px-6 py-2 m-1 duration-200 hover:scale-110 text-sky-400">
-                  <a :href=item.hrefCode target="_blank" rel="noreferrer">Live</a>
+                  <a :href=item.attributes.hrefCode target="_blank" rel="noreferrer">Live</a>
                 </button>
                 <button class="w-1/2 px-6 py-2 m-1 duration-200 hover:scale-110 text-sky-400">
-                <a :href=item.hrefCode target="_blank" rel="noreferrer">Code</a>
+                <a :href=item.attributes.hrefCode target="_blank" rel="noreferrer">Code</a>
                 </button>
               </div>
             </div></li>
